@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get install build-essential "g++" libwxgtk3.0-dev "libcrypto++-dev" libz-dev
+sudo apt-get install build-essential "g++" libwxgtk3.0-dev "libcrypto++-dev" libz-dev -y
 wget https://hndl.urbackup.org/Client/2.1.17/urbackup-client-2.1.17.tar.gz
 tar xzf urbackup-client-2.1.17.tar.gz
 cd urbackup-client-2.1.17
@@ -8,14 +8,12 @@ make -j4
 sudo make install
 sudo urbackupclientbackend -v info
 sudo echo "[Unit]
-Description=ARK Survival Evolved
+Description=URBackup client
 [Service]
 Type=simple
 Restart=on-failure
 RestartSec=5
-StartLimitInterval=60s
-StartLimitBurst=3
-ExecStart=/Ark/ShooterGame/Binaries/Linux/ShooterGameServer Ragnarok?listen?SessionName=ArkWorld -nosteamclient -server -log
+ExecStart=/usr/local/sbin/urbackupclientbackend -d
 ExecStop=killall -TERM srcds_linux
 [Install]
 WantedBy=multi-user.target" >> /etc/systemd/system/urbackupclient.service
