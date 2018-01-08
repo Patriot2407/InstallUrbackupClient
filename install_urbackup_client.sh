@@ -6,7 +6,7 @@ sudo apt-get install build-essential "g++" libwxgtk3.0-dev "libcrypto++-dev" lib
 wget https://hndl.urbackup.org/Client/$VER/urbackup-client-$VER.tar.gz
 tar xzf urbackup-client-$VER.tar.gz
 # build
-cd urbackup-client-$VER
+cd urbackup-client*
 ./configure --enable-headless
 make -j4
 sudo make install
