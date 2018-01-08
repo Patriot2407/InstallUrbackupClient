@@ -11,5 +11,5 @@ cd urbackup-client*
 make -j4
 sudo make install
 # test and run
-sudo urbackupclientbackend -i -v debug
+sudo urbackupclientbackend -v debug
 exit 0
