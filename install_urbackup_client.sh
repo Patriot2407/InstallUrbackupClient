@@ -14,11 +14,16 @@ sudo make install
 sudo urbackupclientbackend -v debug
 sudo echo "
 [Unit]
-Description=urbackup client headless
+Description=UrBackup Client backend
+After=syslog.target network.target
+
 [Service]
-ExecStart=/usr/local/sbin/urbackupclientbackend -v info
+ExecStart=/usr/local/sbin/urbackupclientbackend --config /etc/default/urbackupclient --no-consoletime
+User=root
+
 [Install]
 WantedBy=multi-user.target
+
 " >> /etc/systemd/system/urbackup.service
 sudo systemctl daemon-reload
 sudo systemctl start urbackup
