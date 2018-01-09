@@ -18,7 +18,7 @@ Description=UrBackup Client backend
 After=syslog.target network.target
 
 [Service]
-ExecStart=/usr/local/sbin/urbackupclientbackend --config /etc/default/urbackupclient --no-consoletime
+ExecStart=/usr/local/sbin/urbackupclientbackend --no-consoletime
 User=root
 
 [Install]
